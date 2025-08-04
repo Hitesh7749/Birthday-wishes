@@ -1,0 +1,228 @@
+<!DOCTYPE html><html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🎂 जन्मदिन की शुभकामनाएँ</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #4b004b, #200020);
+      color: white;
+      text-align: center;
+      overflow-x: hidden;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-top: 1rem;
+    }
+    .container {
+      margin-top: 1rem;
+      padding: 1rem;
+      z-index: 1;
+      position: relative;
+    }
+    input[type="file"], input[type="text"] {
+      margin: 0.5rem auto;
+      padding: 0.7rem;
+      display: block;
+      width: 80%;
+      max-width: 300px;
+      border-radius: 10px;
+      border: none;
+      font-size: 1rem;
+    }
+    img {
+      max-width: 200px;
+      margin: 1rem auto;
+      border-radius: 20px;
+      display: block;
+      box-shadow: 0 0 20px 5px #ff00ff66;
+    }
+    a.whatsapp {
+      margin-top: 1rem;
+      padding: 0.8rem 1.2rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      background-color: #25D366;
+      color: white;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .balloon {
+      position: absolute;
+      bottom: -100px;
+      width: 40px;
+      height: 60px;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: rise 7s linear infinite;
+    }
+    @keyframes rise {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-120vh); }
+    }
+    .firework {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background-color: yellow;
+      animation: explode 1s linear forwards;
+      border-radius: 50%;
+    }
+    @keyframes explode {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(5); opacity: 0; }
+    }
+    .emoji {
+      font-size: 2rem;
+      animation: floatUp 3s ease-in-out forwards;
+      position: absolute;
+      bottom: 0;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-100vh); opacity: 0; }
+    }
+    .sparkle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background-color: white;
+      box-shadow: 0 0 10px white;
+      animation: sparkleAnim 2s ease-out forwards;
+    }
+    @keyframes sparkleAnim {
+      0% { opacity: 1; transform: scale(0.5); }
+      100% { opacity: 0; transform: scale(2); }
+    }
+  </style>
+</head>
+<body>
+<script type="text/javascript">
+	atOptions = {
+		'key' : 'b4d640d6e0edc8dadeb238ccbaa0f5f6',
+		'format' : 'iframe',
+		'height' : 50,
+		'width' : 320,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/b4d640d6e0edc8dadeb238ccbaa0f5f6/invoke.js"></script>
+<h1>🎂 जन्मदिन की शुभकामनाएँ 🎉</h1>
+<audio id="bgMusic" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_7b7a6f1f9d.mp3?filename=happy-birthday-to-you-110564.mp3" autoplay loop></audio>
+<audio id="popSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_83db7a7d9b.mp3?filename=balloon-pop-39639.mp3"></audio><div class="container">
+  <h2>🎉 जन्मदिन की बधाई 🎂</h2>
+  <input type="file" id="fileInput" accept="image/*" />
+  <img id="preview" src="" alt="🏱 फोटो यहाँ दिखेगी"/>
+  <input type="text" id="senderName" placeholder="यहाँ अपना नाम लिखें" />
+  <a class="whatsapp" onclick="shareOnWhatsApp()">📲 WhatsApp पर शेयर करें</a>
+<script type="text/javascript">
+	atOptions = {
+		'key' : 'b4d640d6e0edc8dadeb238ccbaa0f5f6',
+		'format' : 'iframe',
+		'height' : 50,
+		'width' : 320,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/b4d640d6e0edc8dadeb238ccbaa0f5f6/invoke.js"></script>
+</div><script>
+  function createBalloon() {
+    const balloon = document.createElement("div");
+    balloon.classList.add("balloon");
+    balloon.style.left = Math.random() * window.innerWidth + "px";
+    balloon.style.background = `radial-gradient(circle at 30% 30%, ${randomColor()}, ${randomColor()})`;
+    balloon.style.animationDuration = (6 + Math.random() * 3) + "s";
+    document.body.appendChild(balloon);
+    setTimeout(() => balloon.remove(), 8000);
+  }
+
+  function randomColor() {
+    return `hsl(${Math.floor(Math.random()*360)}, 80%, 60%)`;
+  }
+
+  function createFirework() {
+    for (let i = 0; i < 10; i++) {
+      const fw = document.createElement("div");
+      fw.className = "firework";
+      fw.style.left = (window.innerWidth / 2 + Math.random() * 200 - 100) + "px";
+      fw.style.top = (window.innerHeight / 3 + Math.random() * 100 - 50) + "px";
+      fw.style.backgroundColor = randomColor();
+      document.body.appendChild(fw);
+      setTimeout(() => fw.remove(), 1000);
+    }
+    document.getElementById("popSound").play();
+  }
+
+  function dropEmoji() {
+    const emojiList = ['🎂','🎈','🎁','😍','🎉'];
+    const e = document.createElement("div");
+    e.className = "emoji";
+    e.innerText = emojiList[Math.floor(Math.random() * emojiList.length)];
+    e.style.left = Math.random() * window.innerWidth + "px";
+    document.body.appendChild(e);
+    setTimeout(() => e.remove(), 4000);
+  }
+
+  function sparkleEffect() {
+    for (let i = 0; i < 15; i++) {
+      const sp = document.createElement("div");
+      sp.className = "sparkle";
+      sp.style.left = Math.random() * window.innerWidth + "px";
+      sp.style.top = Math.random() * window.innerHeight + "px";
+      document.body.appendChild(sp);
+      setTimeout(() => sp.remove(), 2000);
+    }
+  }
+
+  let elapsed = 0;
+  const interval = setInterval(() => {
+    createBalloon();
+    createFirework();
+    dropEmoji();
+    sparkleEffect();
+    elapsed += 500;
+    if (elapsed > 15000) clearInterval(interval);
+  }, 500);
+
+  const fileInput = document.getElementById("fileInput");
+  const preview = document.getElementById("preview");
+
+  fileInput.addEventListener("change", function(event) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        preview.src = e.target.result;
+        fileInput.style.display = "none";
+      };
+      reader.readAsDataURL(file);
+    }
+  });
+
+  function shareOnWhatsApp() {
+    const name = document.getElementById("senderName").value || "किसी ने";
+    const image = preview.src || "";
+    const shareLink = `${location.origin}${location.pathname}?name=${encodeURIComponent(name)}&img=${encodeURIComponent(image)}`;
+    const message = `${name} ने आपको जन्मदिन की शुभकामनाएँ भेजी हैं! 🎉🎂\n\nदेखें: ${shareLink}`;
+    window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank');
+  }
+
+  function getParam(name) {
+    const url = new URL(window.location.href);
+    return url.searchParams.get(name);
+  }
+
+  window.onload = () => {
+    const sharedName = getParam("name");
+    const sharedImg = getParam("img");
+    if (sharedName) document.getElementById("senderName").value = sharedName;
+    if (sharedImg) preview.src = sharedImg;
+  };
+</script>
+</body>
+</html>
