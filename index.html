@@ -3,155 +3,168 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>🎂 जन्मदिन की शुभकामनाएँ 🎉</title>
+  <title>🎂 जन्मदिन की शुभकामनाएँ</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background-color: #8B0000; /* गहरा लाल */
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #4b004b, #200020);
       color: white;
-      font-family: 'Noto Sans Devanagari', sans-serif;
       text-align: center;
-      overflow-x: hidden;
-      position: relative;
+      overflow: hidden;
     }
+
     h1 {
-      font-size: 2em;
-      margin: 20px 0 10px;
+      font-size: 2rem;
+      margin-top: 1rem;
     }
-    #senderMessage {
-      font-size: 1.2em;
-      margin: 10px 0;
-    }
+
     .container {
-      background-color: #8B0000;
-      padding: 20px;
-      border-radius: 15px;
-      width: 90%;
-      max-width: 400px;
-      margin: auto;
-      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      margin-top: 1rem;
+      padding: 1rem;
+      z-index: 2;
       position: relative;
+    }
+
+    .message-box {
+      font-size: 1.2rem;
+      margin: 0.5rem auto;
+    }
+
+    #mainPhoto {
+      max-width: 240px;
+      margin: 1rem auto 0.5rem;
+      border-radius: 12px;
+      display: block;
       z-index: 1;
+      position: relative;
     }
-    .photo-preview {
-      margin: 10px auto;
-      max-width: 100%;
-      border-radius: 10px;
-      display: none;
-    }
-    input[type="file"], input[type="text"] {
-      width: 90%;
-      margin: 10px auto;
-      padding: 10px;
+
+    #senderInput {
+      margin-top: 1rem;
+      padding: 0.6rem;
       border-radius: 10px;
       border: none;
+      font-size: 1rem;
+      width: 80%;
+      max-width: 300px;
       display: block;
-      font-size: 1em;
+      margin-left: auto;
+      margin-right: auto;
     }
-    .share-button {
+
+    a.whatsapp {
+      margin-top: 1rem;
+      padding: 0.8rem 1.2rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
       background-color: #25D366;
       color: white;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 10px;
-      font-size: 1.2em;
-      cursor: pointer;
-      margin-top: 15px;
-      display: block;
-      width: 90%;
       text-decoration: none;
+      display: inline-block;
     }
-    .emoji {
+
+    .floating {
       position: absolute;
       bottom: -50px;
-      font-size: 2em;
+      font-size: 26px;
       animation: rise 5s linear forwards;
-      pointer-events: none;
-      z-index: 9999;
+      z-index: 3;
     }
+
     @keyframes rise {
-      0% {transform: translateY(0);}
-      100% {transform: translateY(-150vh);}
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-110vh); opacity: 0; }
     }
   </style>
 </head>
 <body>
-  <h1>🎂 जन्मदिन की शुभकामनाएँ 🎉</h1>
-  <div id="senderMessage"></div>
+<script type="text/javascript">
+	atOptions = {
+		'key' : 'b4d640d6e0edc8dadeb238ccbaa0f5f6',
+		'format' : 'iframe',
+		'height' : 50,
+		'width' : 320,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/b4d640d6e0edc8dadeb238ccbaa0f5f6/invoke.js"></script>
+<h1>🎂 जन्मदिन की शुभकामनाएँ 🎉</h1>
+<div class="message-box" id="receiverMessage"></div>
 
-  <div class="container" id="mainContainer">
-    <input type="file" accept="image/*" id="photoInput" onchange="previewPhoto()"/>
-    <img id="photoPreview" class="photo-preview" alt="फोटो यहाँ दिखेगी"/>
-    
-    <p id="inviteText">आप भी अपनों को शुभकामनाएँ भेजने के लिए अपना नाम दर्ज करें:</p>
-    <input type="text" id="nameInput" placeholder="अपना नाम दर्ज करें"/>
-    <a href="#" id="whatsappLink" class="share-button">📲 WhatsApp पर शेयर करें</a>
-  </div>
+<div class="container">
+  <img src="birthday.jpg" alt="🎁 जन्मदिन की फोटो" id="mainPhoto" />
+  <div class="message-box">✨ आप भी अपनों को शुभकामनाएँ भेजें ✨</div>
+  <input type="text" id="senderInput" placeholder="अपना नाम यहाँ लिखें" />
+  <a class="whatsapp" onclick="shareOnWhatsApp()">📲 WhatsApp पर शेयर करें</a>
+<script type="text/javascript">
+	atOptions = {
+		'key' : 'c86b3adc8ccc2eae4e97fa057efa196b',
+		'format' : 'iframe',
+		'height' : 250,
+		'width' : 300,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/c86b3adc8ccc2eae4e97fa057efa196b/invoke.js"></script>
+</div>
 
-  <script>
-    // Check if sender name exists in URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const sender = urlParams.get('from');
-    const senderMessageDiv = document.getElementById("senderMessage");
-    const inviteText = document.getElementById("inviteText");
+<audio id="popSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_83db7a7d9b.mp3?filename=balloon-pop-39639.mp3"></audio>
 
-    if (sender) {
-      senderMessageDiv.textContent = `${sender} ने आपके लिए जन्मदिन की शुभकामनाएँ भेजी हैं! 🎉`;
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const nameParam = urlParams.get("name");
+
+  if (nameParam) {
+    document.getElementById("receiverMessage").textContent =
+      `${decodeURIComponent(nameParam)} की तरफ से आपको जन्मदिन की बहुत बहुत शुभकामनाएँ 🎉`;
+  }
+
+  function shareOnWhatsApp() {
+    const name = document.getElementById("senderInput").value || "किसी ने";
+    const link = window.location.origin + window.location.pathname + "?name=" + encodeURIComponent(name);
+    const message = `${name} की तरफ से आपको जन्मदिन की बहुत बहुत शुभकामनाएँ 🎂🎉\n\n${link}`;
+    const whatsappURL = `https://wa.me/?text=${encodeURIComponent(message)}`;
+    window.open(whatsappURL, '_blank');
+  }
+
+  function createFloatingItem() {
+    const emojis = ["🎈", "🎉", "✨", "🥳", "🎂", "💖", "🎊"];
+    const item = document.createElement("div");
+    item.className = "floating";
+    item.style.left = Math.random() * 100 + "vw";
+    item.style.fontSize = (24 + Math.random() * 20) + "px";
+    item.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    document.body.appendChild(item);
+    setTimeout(() => item.remove(), 6000);
+  }
+
+  function createSparkBurst() {
+    const emoji = document.createElement("div");
+    emoji.className = "floating";
+    emoji.style.left = (window.innerWidth / 2 + Math.random() * 200 - 100) + "px";
+    emoji.style.bottom = "200px";
+    emoji.textContent = "✨";
+    document.body.appendChild(emoji);
+    setTimeout(() => emoji.remove(), 5000);
+    document.getElementById("popSound").play();
+  }
+
+  let totalTime = 0;
+  const burstInterval = setInterval(() => {
+    for (let i = 0; i < 7; i++) {
+      createFloatingItem();
     }
+    createSparkBurst();
+    totalTime += 1000;
+    if (totalTime > 30000) clearInterval(burstInterval);
+  }, 700);
 
-    let photoDataUrl = "";
-    function previewPhoto() {
-      const file = document.getElementById('photoInput').files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          photoDataUrl = e.target.result;
-          const preview = document.getElementById('photoPreview');
-          preview.src = photoDataUrl;
-          preview.style.display = 'block';
-        }
-        reader.readAsDataURL(file);
-      }
-    }
+  setInterval(() => {
+    createFloatingItem();
+  }, 1500);
+</script>
 
-    document.getElementById('whatsappLink').addEventListener('click', function(e) {
-      e.preventDefault();
-      const name = document.getElementById('nameInput').value.trim();
-      if (!name) {
-        alert("कृपया अपना नाम दर्ज करें।");
-        return;
-      }
-
-      let url = window.location.origin + window.location.pathname + "?from=" + encodeURIComponent(name);
-      let message = `🎂 जन्मदिन की शुभकामनाएँ!\n\n${name} ने आपके लिए शुभकामनाएँ भेजी हैं! 🎉\n\nदेखें: ${url}`;
-      if (photoDataUrl) {
-        message += "\n(फोटो लिंक नीचे है):\n" + photoDataUrl;
-      }
-
-      const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
-      window.open(whatsappUrl, '_blank');
-    });
-
-    function createEmoji() {
-      const emojiList = ["🎈","🎉","🎊","✨","🥳"];
-      const emoji = document.createElement("div");
-      emoji.classList.add("emoji");
-      emoji.style.left = Math.random() * 100 + "%";
-      emoji.style.animationDuration = (4 + Math.random()*2) + "s";
-      emoji.textContent = emojiList[Math.floor(Math.random() * emojiList.length)];
-      document.body.appendChild(emoji);
-      setTimeout(() => emoji.remove(), 6000);
-    }
-
-    let startTime = Date.now();
-    function launchEmojis() {
-      if (Date.now() - startTime < 20000) {
-        createEmoji();
-        setTimeout(launchEmojis, 200);
-      }
-    }
-    launchEmojis();
-  </script>
 </body>
 </html>
